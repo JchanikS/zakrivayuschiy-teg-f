@@ -33,7 +33,7 @@
   border: var(--border-width) solid var(--contour-color);
   display: flex;
   flex-direction: column;
-  font-family: var(--accent-font);
+  font-family: "Press Start 2P", sans-serif;
   inline-size: 100%;
   margin: 100px auto;
   padding: clamp(120px, 0.75vw + 117.2px, 128px) 0;
@@ -65,6 +65,8 @@
 .main {
   display: grid;
   gap: 50px;
+  justify-items: center;
+  width: 100%;
 }
 
 .image-wrapper {
@@ -83,20 +85,17 @@
 }
 
 .image-text {
-  content: "";
   position: absolute;
-  top: 25px;
-  right: 13px;
-  opacity: 0.5;
-  color: var(--accent-color);
-  font-family: var(--accent-font, "VT323"), monospace;
-  font-weight: 400;
+  inset: 25px 25px auto auto;
+  z-index: 1;
+  opacity: 50%;
+  font-family: "Press Start 2P", sans-serif;
   font-size: 14px;
   line-height: 14px;
-  letter-spacing: 0;
-  text-align: left;
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px var(--outline-color);
+  text-shadow: -1px -1px 0 var(--outline-color),
+      1px -1px 0 var(--outline-color), -1px 1px 0 var(--outline-color),
+      1px 1px 0 var(--outline-color);
 }
 
 .saturation {
@@ -133,9 +132,8 @@
 
 @supports not (-webkit-text-stroke: 1px var(--outline-color)) {
   .image-text {
-    text-shadow: -1px -1px 0 var(--outline-color),
-      1px -1px 0 var(--outline-color), -1px 1px 0 var(--outline-color),
-      1px 1px 0 var(--outline-color);
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--outline-color);
   }
 }
 
@@ -180,7 +178,7 @@
 .button {
   position: relative;
   border: 2px solid var(--accent-color);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease , box-shadow var(--transition-time) ease-in-out;
 }
 
 .button:focus {
@@ -189,7 +187,6 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 0 var(--accent-color);
-  transition: box-shadow var(--transition-time) ease-in-out;
 }
 
 .button::before {
@@ -279,6 +276,7 @@
 
 .like-icon:hover .core {
   fill: var(--icon-hover-color);
+  transition: none;
 }
 
 .like-icon:active .main-body {
@@ -288,6 +286,7 @@
 
 .like-icon:active .core {
   fill: var(--color-icon);
+  transition: none;
 }
 
 .like-icon.is-liked {
@@ -302,6 +301,7 @@
 
 .like-icon.is-liked .core {
   fill: var(--color-icon);
+  transition: none;
 }
 
 .like-icon.is-liked .contour {
@@ -321,12 +321,25 @@
   transition: stroke 0.1s linear;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-block-start: 50px;
-  margin-block-end: 100px;
+.button-save {
+  display: inline-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  -webkit-margin-after: 105px;
+          margin-block-end: 105px;
+  padding: 15px 20px;
+  background-color: #fff;
+  width: auto;
+  height: auto; 
+  max-width: 100%;
 }
 
 .dialog {
@@ -341,6 +354,8 @@
 .dialog[open] {
   display: flex;
   flex-direction: column;
+  max-width: 357px;
+  min-height: 193px;
 }
 
 .dialog::backdrop {
@@ -379,7 +394,6 @@
   align-items: center;
   gap: 30px;
 }
-
 .icon-floppy-dialog {
   color: var(--icon-hover-color);
 }
@@ -394,7 +408,7 @@
     align-self: center;
     max-width: 700px;
   }
-}
+
  
   .article__title {
     padding: 6px 15px 5px 12px;
@@ -412,9 +426,25 @@
     min-height: 54px;
   }
 
+  .button-save {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+    margin-block-end: 105px;
+    padding: 15px 20px;
+    background-color: #fff;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+  
+
   .icon-floppy {
     width: 21px;
     height: 21px;
+    margin-right: 8px;
   }
 
   .dialog {
@@ -442,4 +472,4 @@
   .columns__text {
     max-width: 90%;
   }
-
+}
