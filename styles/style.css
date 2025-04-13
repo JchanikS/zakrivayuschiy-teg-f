@@ -30,7 +30,6 @@
 
 .header {
   align-items: center;
-  background: var(--page-background-color);
   border: var(--border-width) solid var(--contour-color);
   display: flex;
   flex-direction: column;
@@ -324,22 +323,15 @@
 }
 
 .button-save {
-  display: inline-flex;
-  display: -ms-flexbox;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-margin-after: 105px;
-          margin-block-end: 105px;
+  display: inline-flex; /* Используем стандартный display для flexbox */
+  align-items: center;  /* Центрируем элементы по вертикали */
+  justify-content: center; /* Центрируем элементы по горизонтали (если нужно) */
+  margin-block-end: 105px;  /* Убираем префикс */
   padding: 15px 20px;
   background-color: #fff;
   width: auto;
   height: auto; 
-  max-width: 100%;
+  max-width: 100%
 }
 
 .dialog {
@@ -438,7 +430,6 @@
     height: auto;
     max-width: 100%;
   }
-  
 
   .icon-floppy {
     width: 21px;
@@ -471,19 +462,20 @@
     max-width: 90%;
   }
 }
+
 @media (max-width: 376px) {
-  .button-save {
-    flex-direction: column; 
-    align-items: center; 
-  }
+.button-save {
+  flex-direction: column; 
+  align-items: center; 
+}
 
-  .icon-floppy {
-    margin-right: 0; 
-    margin-bottom: 15px; 
-  }
+.icon-floppy {
+  margin-right: 0; 
+  margin-bottom: 15px; 
+}
 
-  .button__text {
-    font-size: 14px; 
-    text-align: center; 
-  }
+.button__text {
+  font-size: 14px; 
+  text-align: center; 
+}  
 }
