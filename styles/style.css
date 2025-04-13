@@ -30,7 +30,6 @@
 
 .header {
   align-items: center;
-  border: var(--border-width) solid var(--contour-color);
   display: flex;
   flex-direction: column;
   font-family: "Press Start 2P", sans-serif;
@@ -331,7 +330,7 @@
   background-color: #fff;
   width: auto;
   height: auto; 
-  max-width: 100%
+  max-width: 100%;
 }
 
 .dialog {
@@ -464,18 +463,18 @@
 }
 
 @media (max-width: 376px) {
-.button-save {
+ .button-save {
   flex-direction: column; 
   align-items: center; 
-}
+ }
 
-.icon-floppy {
+ .icon-floppy {
   margin-right: 0; 
   margin-bottom: 15px; 
-}
+ }
 
-.button__text {
+ .button__text {
   font-size: 14px; 
-  text-align: center; 
-}  
+  text-align: center;
+ }
 }
