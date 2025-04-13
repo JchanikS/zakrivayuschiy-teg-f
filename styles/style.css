@@ -24,6 +24,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  max-width: 100%;
   font-variation-settings: "wght" var(--font-weight-main);
 }
 
@@ -74,6 +75,7 @@
   display: inline-block;
   width: 100%;
   border: 2px solid var(--accent-color);
+  max-width: 100%;
 }
 
 .image {
@@ -92,10 +94,10 @@
   font-family: "Press Start 2P", sans-serif;
   font-size: 14px;
   line-height: 14px;
-  mix-blend-mode: hard-light;
   text-shadow: -1px -1px 0 var(--outline-color),
       1px -1px 0 var(--outline-color), -1px 1px 0 var(--outline-color),
       1px 1px 0 var(--outline-color);
+      mix-blend-mode: hard-light;
 }
 
 .saturation {
@@ -323,7 +325,6 @@
 
 .button-save {
   display: inline-flex;
-  display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -332,7 +333,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 8px;
   -webkit-margin-after: 105px;
           margin-block-end: 105px;
   padding: 15px 20px;
@@ -346,7 +346,6 @@
   position: fixed;
   inset: 0;
   max-width: 341px;
-  min-height: 191px;
   border: 2px solid var(--accent-color);
   background: var(--main-background);
 }
@@ -449,7 +448,6 @@
 
   .dialog {
     max-width: 357px;
-    min-height: 193px;
   }
 
   .dialog-content {
@@ -471,5 +469,21 @@
 
   .columns__text {
     max-width: 90%;
+  }
+}
+@media (max-width: 376px) {
+  .button-save {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .icon-floppy {
+    margin-right: 0; 
+    margin-bottom: 15px; 
+  }
+
+  .button__text {
+    font-size: 14px; 
+    text-align: center; 
   }
 }
